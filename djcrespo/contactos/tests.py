@@ -1,5 +1,6 @@
 from django.test import TestCase
 from .models import Contact
+from django.core.exceptions import ObjectDoesNotExist
 
 # Create your tests here.
 class PostTest(TestCase):
@@ -59,3 +60,21 @@ class PostTest(TestCase):
         print(Contact.objects.get(pk=3))
 
         #10 examples of ORM Get
+        #1
+        query = Contact.objects.get(pk=1)
+        print(query)
+        #2
+        try:
+            query = Contact.objects.get(name='ignacio')
+        except ObjectDoesNotExist:
+            print("No existe")
+        #3
+        query = Contact.objects.filter(name='Didier').order_by('created_at')
+        print(query)
+        #4
+        try:
+            instance = Contact.objects.get(name='ignacio')
+        except ObjectDoesNotExist:
+            instance = Contact.objects.create(name='ignacio', phone='12345', email='')
+            instance.save()
+        #5
