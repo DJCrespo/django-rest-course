@@ -36,7 +36,7 @@ class PostTest(TestCase):
         instance.email = ''
         instance.save()
         #8
-
+        
 
     def test_for_contact(self): 
         #10 examples of ORM List/Filter/Order
@@ -59,7 +59,7 @@ class PostTest(TestCase):
         #8
         print(Contact.objects.get(pk=3))
 
-        #10 examples of ORM Get
+        #5 examples of ORM Get
         #1
         query = Contact.objects.get(pk=1)
         print(query)
@@ -78,3 +78,8 @@ class PostTest(TestCase):
             instance = Contact.objects.create(name='ignacio', phone='12345', email='')
             instance.save()
         #5
+        
+        #5 examples of ORM Update/Partial
+
+
+        #5 examples of ORM Delete
